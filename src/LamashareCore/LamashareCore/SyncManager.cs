@@ -26,7 +26,7 @@ public class SyncManager
         if (remoteFile.ModifiedOn > localFileInfo.LastWriteTime)
         {
             List<Block> diff = await GetFileLocalDiff(apiUrl, library, PathUtil.SystemPathToLibraryPath(filepath, library));
-            PullDiff();
+            //PullDiff();
         }
         else
         {
@@ -130,7 +130,7 @@ public class SyncManager
         long index = 0;
         for (long i = 0; i < transaction.BlockCount; i++)
         {
-            if ()
+            //if ()
             
             // get block by id (add nocontent to only get checksum)
             HttpResponseMessage response = await client.GetAsync(apiUrl+i+"/nocontent");
@@ -149,11 +149,11 @@ public class SyncManager
         #region Push
         try
         {
-            foreach (var dto in pushList)
-            {
-                HttpResponseMessage response = await client.PostAsJsonAsync(apiUrl, dto);
-                response.EnsureSuccessStatusCode();
-            }
+            //foreach (var dto in pushList)
+            //{
+            //    HttpResponseMessage response = await client.PostAsJsonAsync(apiUrl, dto);
+            //    response.EnsureSuccessStatusCode();
+            //}
         }
         catch (HttpRequestException e)
         {
@@ -165,10 +165,10 @@ public class SyncManager
         transVerifyResp.EnsureSuccessStatusCode();
         var verifiedTransaction = await transVerifyResp.Content.ReadFromJsonAsync<TransactionDto>();
         if (transaction == null) throw new ArgumentException();
-        if (transaction.IsComplete)
-        {
+        //if (transaction.IsComplete)
+        //{
             // TODO
-        }
+        //}
         #endregion
     }
 
@@ -279,6 +279,7 @@ public class SyncManager
     {
         // TODO: Generate diff list by fetching full block list from remote (without content) and compraring it to local block list.
         // We then fetch the blocks we dont have locally (in the file, NOT LIBRARY - WE WILL DO THAT ANOTHER TIME).
+        return null;
     }
     
     private async Task<bool> GetIsFileRemoteLocked(string remoteUrl, Library library, string filePathInLib)
