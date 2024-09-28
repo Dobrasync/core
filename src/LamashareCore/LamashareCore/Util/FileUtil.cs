@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
+using LamashareCore.Models;
 
 namespace LamashareCore.Util;
 
@@ -13,15 +14,55 @@ public static class FileUtil
     /// <returns>Absolute system path of the file</returns>
     public static string FileLibPathToSysPath(string libraryPath, string fileLibraryPath)
     {
-        if (!Directory.Exists(libraryPath))
-        {
-            throw new DirectoryNotFoundException($"The directory '{libraryPath}' does not exist.");
-        }
-        
         string combinedPath = Path.Combine(libraryPath, fileLibraryPath);
         
         return Path.GetFullPath(combinedPath);
     }
+    
+    public static string FileSysPathToLibPath(string sysPath, string libPath)
+    {
+        return Path.GetRelativePath(libPath, sysPath);
+    }
+    
+    public static List<Block> GetFileBlocks(string filepath, int chunkSize = 128 * 1024)
+    {
+        using FileStream fs = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+        long fileSize = fs.Length;
+        string fileName = Path.GetFileName(filepath);
+        int chunkNumber = 0;
+        List<Block> fileBlocks = new List<Block>();
+    
+        while (fs.Position < fileSize)
+        {
+            byte[] buffer = new byte[chunkSize];
+            int bytesRead = fs.Read(buffer, 0, chunkSize);
+        
+            if (bytesRead < chunkSize)
+            {
+                Array.Resize(ref buffer, bytesRead);
+            }
+            
+            fileBlocks.Add(new()
+            {
+                Payload = buffer,
+                Checksum =  CalculateChecksum(buffer)
+            });
+            chunkNumber++;
+        }
+
+        return fileBlocks;
+    }
+    
+    public static string CalculateChecksum(byte[] data)
+    {
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            byte[] hashBytes = sha256.ComputeHash(data);
+            return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+        }
+    }
+
+    
     public static async Task<string> GetFileTotalChecksumAsync(string fileSystemPath)
     {
         if (!File.Exists(fileSystemPath))
