@@ -53,6 +53,31 @@ public static class FileUtil
         return fileBlocks;
     }
     
+    public static async Task<byte[]> GetFileBlock(string checksum, string filePath, int chunkSize = 128 * 1024, long offset = 0)
+    {
+        byte[] block = new byte[chunkSize];
+
+        using (FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+        {
+            fileStream.Seek(offset, SeekOrigin.Begin);
+            int bytesRead = await fileStream.ReadAsync(block, 0, chunkSize);
+
+            if (bytesRead < chunkSize)
+            {
+                Array.Resize(ref block, bytesRead);
+            }
+        }
+
+        string actualChecksum = CalculateChecksum(block);
+
+        if (actualChecksum != checksum)
+        {
+            throw new Exception("Checksum mismatch. Block integrity compromised.");
+        }
+
+        return block;
+    }
+    
     public static string CalculateChecksum(byte[] data)
     {
         using (SHA256 sha256 = SHA256.Create())
