@@ -45,7 +45,8 @@ public static class FileUtil
             fileBlocks.Add(new()
             {
                 Payload = buffer,
-                Checksum =  CalculateChecksum(buffer)
+                Checksum =  CalculateChecksum(buffer),
+                Offset = fs.Position,
             });
             chunkNumber++;
         }
@@ -92,7 +93,7 @@ public static class FileUtil
     {
         if (!File.Exists(fileSystemPath))
         {
-            throw new FileNotFoundException("The specified file does not exist.", fileSystemPath);
+            throw new FileNotFoundException($"The specified file does not exist. {fileSystemPath}", fileSystemPath);
         }
 
         using var sha256 = SHA256.Create();
