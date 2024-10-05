@@ -7,4 +7,5 @@ public class FileDto
     public string FileLibraryPath { get; set; } = default!;
     public bool Locked { get; set; } = default!;
     public DateTime ModifiedOn { get; set; } = default!;
+    public DateTime CreatedOn { get; set; } = default!;
 }

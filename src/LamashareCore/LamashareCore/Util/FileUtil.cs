@@ -46,7 +46,7 @@ public static class FileUtil
             {
                 Payload = buffer,
                 Checksum =  CalculateChecksum(buffer),
-                Offset = fs.Position,
+                Offset = Math.Max(0, fs.Position-chunkSize),
             });
             chunkNumber++;
         }
@@ -101,8 +101,8 @@ public static class FileUtil
         StringBuilder metadataBuilder = new StringBuilder();
         FileInfo fileInfo = new FileInfo(fileSystemPath);
 
-        metadataBuilder.AppendLine($"FileName: {fileInfo.Name}");
-        metadataBuilder.AppendLine($"FileSize: {fileInfo.Length}");
+        //metadataBuilder.AppendLine($"FileName: {fileInfo.Name}");
+        //metadataBuilder.AppendLine($"FileSize: {fileInfo.Length}");
         metadataBuilder.AppendLine($"CreationTime: {fileInfo.CreationTimeUtc}");
         metadataBuilder.AppendLine($"LastModifiedTime: {fileInfo.LastWriteTimeUtc}");
 
@@ -121,5 +121,49 @@ public static class FileUtil
         }
 
         return BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
+    }
+
+    public static async Task FullRestoreFileFromBlocks(List<string> blockPaths, string outputFilePath,
+        DateTime createdOn, DateTime modifiedOn)
+    {
+        await MakeFileFromBlocks(blockPaths, outputFilePath);
+        SetFileMetadata(outputFilePath, createdOn, modifiedOn);
+    }
+
+    public static void SetFileMetadata(string file, DateTime createdOn, DateTime modifiedOn)
+    {
+        // Restore metadata
+        global::System.IO.File.SetCreationTimeUtc(file, createdOn);
+        global::System.IO.File.SetLastWriteTimeUtc(file, modifiedOn);
+    }
+    
+    public static async Task MakeFileFromBlocks(List<string> blockPaths, string outputPath)
+    {
+        //string blocksDir = apps.GetAppsettings().Storage.TempBlockLocation;
+        //string outputPath = FileUtil.FileLibPathToSysPath(LibraryUtil.GetLibraryDirectory(libId, apps.GetAppsettings().Storage.LibraryLocation), targetFile);
+    
+        // Ensure the output directory exists
+        string? directory = Path.GetDirectoryName(outputPath);
+        if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        // Combine file blocks and write to disk
+        using (FileStream outputStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write))
+        {
+            foreach (string path in blockPaths)
+            {
+                if (!Path.Exists(path))
+                {
+                    throw new FileNotFoundException($"Block file not found: {path}");
+                }
+
+                using (FileStream inputStream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                    await inputStream.CopyToAsync(outputStream);
+                }
+            }
+        }
     }
 }
