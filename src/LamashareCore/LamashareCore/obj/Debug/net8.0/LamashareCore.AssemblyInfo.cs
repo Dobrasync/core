@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LamashareCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fa277ea9b3a6dbe52e77c96290b46a411637566")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e708829a16c12ddf3fbe0d90623dc81609376bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("LamashareCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LamashareCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

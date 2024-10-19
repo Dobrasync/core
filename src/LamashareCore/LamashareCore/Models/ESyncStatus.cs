@@ -6,5 +6,5 @@ public enum ESyncStatus
     LOCKED,
     ERROR,
     NEWER_REMOTE,
-    NEWER_LOCAL,
+    NEWER_LOCAL
 }
