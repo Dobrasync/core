@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dobrashare.Core.Main", "Dobrashare.Core.Main\Dobrashare.Core.Main.csproj", "{132F82FE-19BD-46CC-8824-A4325792AFD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dobrasync.Core.Main", "Dobrasync.Core.Main\Dobrasync.Core.Main.csproj", "{132F82FE-19BD-46CC-8824-A4325792AFD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
