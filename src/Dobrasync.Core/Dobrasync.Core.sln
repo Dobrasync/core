@@ -1,6 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dobrasync.Core.Main", "Dobrasync.Core.Main\Dobrasync.Core.Main.csproj", "{132F82FE-19BD-46CC-8824-A4325792AFD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dobrasync.Core.Common", "Dobrasync.Core.Common\Dobrasync.Core.Common.csproj", "{132F82FE-19BD-46CC-8824-A4325792AFD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dobrasync.Core.Client.Common", "Dobrasync.Core.Client.Common\Dobrasync.Core.Client.Common.csproj", "{DB27EDC2-7DC5-4F59-B4B8-A31CC517983B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dobrasync.Core.Client.ApiGen", "Dobrasync.Core.Client.ApiGen\Dobrasync.Core.Client.ApiGen.csproj", "{D3F1DEA2-9A83-463A-90AC-022FBAE4AA67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dobrasync.Core.Client.Database", "Dobrasync.Core.Client.Database\Dobrasync.Core.Client.Database.csproj", "{D7E05233-AC8C-437F-BCCB-EC27143115FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dobrasync.Core.Client.BusinessLogic", "Dobrasync.Core.Client.BusinessLogic\Dobrasync.Core.Client.BusinessLogic.csproj", "{64E31F14-4468-4EA7-B06F-F19DFE9EA017}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +20,21 @@ Global
 		{132F82FE-19BD-46CC-8824-A4325792AFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{132F82FE-19BD-46CC-8824-A4325792AFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{132F82FE-19BD-46CC-8824-A4325792AFD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB27EDC2-7DC5-4F59-B4B8-A31CC517983B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB27EDC2-7DC5-4F59-B4B8-A31CC517983B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB27EDC2-7DC5-4F59-B4B8-A31CC517983B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB27EDC2-7DC5-4F59-B4B8-A31CC517983B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F1DEA2-9A83-463A-90AC-022FBAE4AA67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F1DEA2-9A83-463A-90AC-022FBAE4AA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F1DEA2-9A83-463A-90AC-022FBAE4AA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F1DEA2-9A83-463A-90AC-022FBAE4AA67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E05233-AC8C-437F-BCCB-EC27143115FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E05233-AC8C-437F-BCCB-EC27143115FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E05233-AC8C-437F-BCCB-EC27143115FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E05233-AC8C-437F-BCCB-EC27143115FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64E31F14-4468-4EA7-B06F-F19DFE9EA017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64E31F14-4468-4EA7-B06F-F19DFE9EA017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64E31F14-4468-4EA7-B06F-F19DFE9EA017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64E31F14-4468-4EA7-B06F-F19DFE9EA017}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

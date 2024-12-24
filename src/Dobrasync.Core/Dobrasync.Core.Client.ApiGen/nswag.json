@@ -1,0 +1,23 @@
+{
+  "runtime": "Net80",
+  "defaultVariables": null,
+  "documentGenerator": {
+    "fromDocument": {
+      "url": "http://localhost:5000/swagger/v1/swagger.json"
+    }
+  },
+  "codeGenerators": {
+    "openApiToCSharpClient": {
+      "clientBaseClass": null,
+      "generateClientClasses": true,
+      "generateClientInterfaces": true,
+      "clientBaseInterface": null,
+      "injectHttpClient": true,
+      "disposeHttpClient": false,
+      "operationGenerationMode": "MultipleClientsFromOperationId",
+      "output": "./Mainline/ApiClient.cs",
+      "className": "ApiClient",
+      "namespace": "Lamashare.CLI.ApiGen.Mainline"
+    }
+  }
+}

@@ -1,4 +1,6 @@
-namespace LamashareCore.Models;
+
+
+namespace Dobrasync.Core.Common.Models;
 
 public enum ESyncStatus
 {

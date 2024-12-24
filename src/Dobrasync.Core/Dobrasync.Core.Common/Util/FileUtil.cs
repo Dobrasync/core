@@ -1,8 +1,8 @@
 using System.Security.Cryptography;
 using System.Text;
-using LamashareCore.Models;
+using Dobrasync.Core.Common.Models;
 
-namespace LamashareCore.Util;
+namespace Dobrasync.Core.Common.Util;
 
 public static class FileUtil
 {
@@ -24,13 +24,13 @@ public static class FileUtil
         return Path.GetRelativePath(libPath, sysPath);
     }
 
-    public static List<Block> GetFileBlocks(string filepath, int chunkSize = 128 * 1024)
+    public static List<FileBlock> GetFileBlocks(string filepath, int chunkSize = 128 * 1024)
     {
         using var fs = new FileStream(filepath, FileMode.Open, FileAccess.Read);
         var fileSize = fs.Length;
         var fileName = Path.GetFileName(filepath);
         var chunkNumber = 0;
-        var fileBlocks = new List<Block>();
+        var fileBlocks = new List<FileBlock>();
 
         while (fs.Position < fileSize)
         {
@@ -39,7 +39,7 @@ public static class FileUtil
 
             if (bytesRead < chunkSize) Array.Resize(ref buffer, bytesRead);
 
-            fileBlocks.Add(new Block
+            fileBlocks.Add(new FileBlock
             {
                 Payload = buffer,
                 Checksum = CalculateChecksum(buffer),
