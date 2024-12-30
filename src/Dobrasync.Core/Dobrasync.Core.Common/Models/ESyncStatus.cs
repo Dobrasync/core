@@ -1,5 +1,3 @@
-
-
 namespace Dobrasync.Core.Common.Models;
 
 public enum ESyncStatus

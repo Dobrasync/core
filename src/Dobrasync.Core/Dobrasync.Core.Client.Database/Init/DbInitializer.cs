@@ -1,6 +1,3 @@
-
-
-
 namespace Dobrasync.Core.Client.Database.Init;
 
 public static class DbInitializer

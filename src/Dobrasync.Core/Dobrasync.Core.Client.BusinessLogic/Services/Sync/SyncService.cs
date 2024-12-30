@@ -1,15 +1,17 @@
+using System.Text.Json;
+using Dobrasync.Core.Client.ApiGen.Mainline;
+using Dobrasync.Core.Client.BusinessLogic.Services.Auth;
+using Dobrasync.Core.Client.BusinessLogic.Services.Block;
+using Dobrasync.Core.Client.BusinessLogic.Services.Logger;
+using Dobrasync.Core.Client.BusinessLogic.Services.SystemSetting;
+using Dobrasync.Core.Client.Common.Helpers;
 using Dobrasync.Core.Client.Database.Entities;
 using Dobrasync.Core.Client.Database.Enums;
 using Dobrasync.Core.Client.Database.Repo;
-using Dobrasync.Core.Client.Main.Const;
-using Dobrasync.Core.Client.Main.Services.Auth;
-using Dobrasync.Core.Client.Main.Services.Block;
-using Dobrasync.Core.Client.Main.Services.Logger;
-using Dobrasync.Core.Client.Main.Services.SystemSetting;
-using Dobrasync.Core.Client.Main.Util;
-using Dobrasync.Core.Main.Util;
+using Dobrasync.Core.Common.Util;
+using Microsoft.EntityFrameworkCore;
 
-namespace Dobrasync.Core.Client.Main.Services.Sync;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.Sync;
 
 public class SyncService(
     IApiClient apiClient,
@@ -394,10 +396,10 @@ public class SyncService(
 
         #region Get local file info and data
 
-        string fileSysPath = FileUtil.FileLibPathToSysPath(lib.LocalPath, file);
+        var fileSysPath = FileUtil.FileLibPathToSysPath(lib.LocalPath, file);
         var localFileInfo = new FileInfo(fileSysPath);
         var localFileBlocklist = FileUtil.GetFileBlocks(fileSysPath);
-        string localFileTotalChecksum = await FileUtil.GetFileTotalChecksumAsync(fileSysPath);
+        var localFileTotalChecksum = await FileUtil.GetFileTotalChecksumAsync(fileSysPath);
 
         #endregion
 
@@ -579,8 +581,8 @@ public class SyncService(
             #region Get file info from file system
 
             FileInfo info = new(syspath);
-            string fileLibPath = FileUtil.FileSysPathToLibPath(syspath, lib.LocalPath);
-            string fileTotalChecksum = await FileUtil.GetFileTotalChecksumAsync(syspath);
+            var fileLibPath = FileUtil.FileSysPathToLibPath(syspath, lib.LocalPath);
+            var fileTotalChecksum = await FileUtil.GetFileTotalChecksumAsync(syspath);
             DateTimeOffset dateModified = info.LastWriteTimeUtc;
             DateTimeOffset dateCreated = info.CreationTimeUtc;
 
@@ -610,7 +612,7 @@ public class SyncService(
                 // even if its just the metadata that has changed.
                 if (fileTotalChecksum != existingDbFile.TotalChecksum)
                 {
-                    List<LamashareCore.Models.Block> newBlocks = FileUtil.GetFileBlocks(syspath);
+                    var newBlocks = FileUtil.GetFileBlocks(syspath);
 
                     List<BlockEntity> newBlockAssembly = new();
                     foreach (var newBlock in newBlocks)

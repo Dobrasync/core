@@ -13,7 +13,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\submodules\core\src\Dobrasync.Core\Dobrasync.Core.Main\Dobrasync.Core.Main.csproj"/>
+        <ProjectReference Include="..\Dobrasync.Core.Client.ApiGen\Dobrasync.Core.Client.ApiGen.csproj"/>
+        <ProjectReference Include="..\Dobrasync.Core.Common\Dobrasync.Core.Common.csproj"/>
     </ItemGroup>
 
     <ItemGroup>

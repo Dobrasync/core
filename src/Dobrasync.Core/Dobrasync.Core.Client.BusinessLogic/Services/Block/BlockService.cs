@@ -1,8 +1,8 @@
+using Dobrasync.Core.Client.BusinessLogic.Services.SystemSetting;
 using Dobrasync.Core.Client.Database.Enums;
-using Dobrasync.Core.Client.Main.Services.SystemSetting;
-using Dobrasync.Core.Main.Util;
+using Dobrasync.Core.Common.Util;
 
-namespace Dobrasync.Core.Client.Main.Services.Block;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.Block;
 
 public class BlockService(ISystemSettingService settings) : IBlockService
 {

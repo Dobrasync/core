@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Dobrasync.Core.Client.Common\Dobrasync.Core.Client.Common.csproj" />
+        <ProjectReference Include="..\Dobrasync.Core.Client.Common\Dobrasync.Core.Client.Common.csproj"/>
     </ItemGroup>
 
 </Project>

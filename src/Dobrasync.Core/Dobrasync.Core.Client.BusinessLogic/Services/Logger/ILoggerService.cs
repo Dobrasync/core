@@ -1,6 +1,4 @@
-
-
-namespace Dobrasync.Core.Client.Main.Services.Logger;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.Logger;
 
 public interface ILoggerService
 {

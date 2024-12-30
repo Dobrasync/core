@@ -1,11 +1,13 @@
+using System.Text.Json;
+using Dobrasync.Core.Client.ApiGen.Mainline;
+using Dobrasync.Core.Client.BusinessLogic.Services.Auth.Dto;
+using Dobrasync.Core.Client.BusinessLogic.Services.Logger;
+using Dobrasync.Core.Client.BusinessLogic.Services.SystemSetting;
+using Dobrasync.Core.Client.Common.Exceptions;
+using Dobrasync.Core.Client.Common.Helpers;
 using Dobrasync.Core.Client.Database.Enums;
-using Dobrasync.Core.Client.Main.Services.Auth.Dto;
-using Dobrasync.Core.Client.Main.Services.Logger;
-using Dobrasync.Core.Client.Main.Services.SystemSetting;
-using Dobrasync.Core.Client.Shared.Exceptions;
-using Dobrasync.Core.Client.Shared.Helpers;
 
-namespace Dobrasync.Core.Client.Main.Services.Auth;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.Auth;
 
 public class AuthService(ISystemSettingService settings, IApiClient apiClient, ILoggerService logger) : IAuthService
 {

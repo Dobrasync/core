@@ -1,6 +1,4 @@
-
-
-namespace Dobrasync.Core.Client.Main.Services.Block;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.Block;
 
 public interface IBlockService
 {

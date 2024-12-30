@@ -1,7 +1,7 @@
 using Dobrasync.Core.Client.Database.Entities;
 using Dobrasync.Core.Client.Database.Enums;
 
-namespace Dobrasync.Core.Client.Main.Services.SystemSetting;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.SystemSetting;
 
 public interface ISystemSettingService
 {

@@ -1,6 +1,3 @@
-
-
-
 namespace Dobrasync.Core.Client.Database.Repo;
 
 public interface IRepo<TEntity>

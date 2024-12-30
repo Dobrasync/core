@@ -1,6 +1,3 @@
-
-
-
 namespace Dobrasync.Core.Client.Database.Enums;
 
 public enum ESystemSetting

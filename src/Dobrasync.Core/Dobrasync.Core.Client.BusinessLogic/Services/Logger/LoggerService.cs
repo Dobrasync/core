@@ -1,6 +1,6 @@
+using Microsoft.Extensions.Logging;
 
-
-namespace Dobrasync.Core.Client.Main.Services.Logger;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.Logger;
 
 public class LoggerService(ILogger<LoggerService> logger) : ILoggerService
 {

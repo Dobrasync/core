@@ -1,10 +1,11 @@
+using Dobrasync.Core.Client.BusinessLogic.Services.Logger;
+using Dobrasync.Core.Client.Common.Exceptions;
 using Dobrasync.Core.Client.Database.Entities;
 using Dobrasync.Core.Client.Database.Enums;
 using Dobrasync.Core.Client.Database.Repo;
-using Dobrasync.Core.Client.Main.Services.Logger;
-using Dobrasync.Core.Client.Shared.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
-namespace Dobrasync.Core.Client.Main.Services.SystemSetting;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.SystemSetting;
 
 public class SystemSettingService(IRepoWrapper repoWrap, ILoggerService logger) : ISystemSettingService
 {

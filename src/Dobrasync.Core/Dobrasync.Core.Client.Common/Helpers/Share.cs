@@ -1,6 +1,4 @@
-
-
-namespace Dobrasync.Core.Client.Main.Const;
+namespace Dobrasync.Core.Client.Common.Helpers;
 
 public static class Share
 {

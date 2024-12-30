@@ -17,7 +17,7 @@
       "operationGenerationMode": "MultipleClientsFromOperationId",
       "output": "./Mainline/ApiClient.cs",
       "className": "ApiClient",
-      "namespace": "Lamashare.CLI.ApiGen.Mainline"
+      "namespace": "Dobrasync.Core.Client.ApiGen.Mainline"
     }
   }
 }

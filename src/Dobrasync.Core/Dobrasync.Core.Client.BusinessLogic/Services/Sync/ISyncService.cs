@@ -1,6 +1,4 @@
-
-
-namespace Dobrasync.Core.Client.Main.Services.Sync;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.Sync;
 
 public interface ISyncService
 {

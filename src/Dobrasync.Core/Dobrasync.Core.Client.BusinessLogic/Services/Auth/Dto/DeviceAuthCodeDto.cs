@@ -1,6 +1,4 @@
-
-
-namespace Dobrasync.Core.Client.Main.Services.Auth.Dto;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.Auth.Dto;
 
 public class DeviceAuthCodeDto
 {

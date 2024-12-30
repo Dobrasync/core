@@ -1,6 +1,4 @@
-
-
-namespace Dobrasync.Core.Client.Main.Const;
+namespace Dobrasync.Core.Common.Util;
 
 public class GuidExtensions
 {

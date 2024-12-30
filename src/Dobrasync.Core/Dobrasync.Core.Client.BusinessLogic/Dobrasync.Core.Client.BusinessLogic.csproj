@@ -6,4 +6,11 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Dobrasync.Core.Client.ApiGen\Dobrasync.Core.Client.ApiGen.csproj"/>
+        <ProjectReference Include="..\Dobrasync.Core.Client.Common\Dobrasync.Core.Client.Common.csproj"/>
+        <ProjectReference Include="..\Dobrasync.Core.Client.Database\Dobrasync.Core.Client.Database.csproj"/>
+        <ProjectReference Include="..\Dobrasync.Core.Common\Dobrasync.Core.Common.csproj"/>
+    </ItemGroup>
+
 </Project>

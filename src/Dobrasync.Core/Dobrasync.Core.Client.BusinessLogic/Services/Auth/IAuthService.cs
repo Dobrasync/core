@@ -1,6 +1,4 @@
-
-
-namespace Dobrasync.Core.Client.Main.Services.Auth;
+namespace Dobrasync.Core.Client.BusinessLogic.Services.Auth;
 
 public interface IAuthService
 {
